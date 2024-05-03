@@ -1,7 +1,14 @@
 import React from 'react'
+import { useGetOrdersQuery } from '../state/pizzaApi'
+
 
 export default function OrderList() {
-  const orders = []
+  const {data:orders, isLoading}= useGetOrdersQuery()
+  
+ if(isLoading){
+  return null
+ }
+
   return (
     <div id="orderList">
       <h2>Pizza Orders</h2>
@@ -33,3 +40,5 @@ export default function OrderList() {
     </div>
   )
 }
+
+
