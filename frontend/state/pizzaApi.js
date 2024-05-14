@@ -7,7 +7,7 @@ export const pizzaApi= createApi({
     endpoints: (builder)=>({
       getOrders: builder.query({
         query: ()=> '/history',
-        providesTags: ['Pizza'],
+        providesTags: ['Orders'],
       }),
       addOrder:builder.mutation({
         query:(postData)=>({
@@ -15,13 +15,14 @@ export const pizzaApi= createApi({
           method:'POST',
           body:postData,
         }),
-        invalidatesTags:['Pizza'],
+        invalidatesTags:['Orders'],
       })
     })
   })
-
+  
   export const {
     useGetOrdersQuery,
     useAddOrderMutation,
   }= pizzaApi
 
+  
